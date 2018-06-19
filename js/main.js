@@ -73,6 +73,7 @@ var totalCount = 47;
         }
         $('#happy').show();
         $('#birthday').show();
+        $('#name').show();
         confetti();
     }
 

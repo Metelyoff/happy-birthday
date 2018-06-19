@@ -239,6 +239,7 @@ h1 span {
 
 .icons span.letter {
 	color: #fdc56d;
+	margin: 0 0.1em;
 }
 
 .icons svg path,
