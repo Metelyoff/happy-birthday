@@ -4,7 +4,6 @@
 	<meta charset="UTF-8" />
 	<title>Happy Birthday :)</title>
 	<link rel="shortcut icon" href="img/favicon.ico">
-	<!-- <link rel="stylesheet" type="text/css" href="css/normalize.css" /> -->
 	<link rel="stylesheet" type="text/css" href="css/demo.css" />
 	<link rel="stylesheet" type="text/css" href="css/component.css" />
 	<script src="js/prefix-free.js"></script>
@@ -17,14 +16,14 @@
 	<canvas id="canvas"></canvas>
 	<div class="container">
 		<div id="result" class="codrops-top clearfix" style="display: none;">
-			<span>Car: </span>
-			<span id="carResult"></span>
-			<span>Girl: </span>
-			<span id="girlResult"></span>
-			<span>Money: </span>
+			<span>Дом:</span>
+			<span id="houseResult"></span>
+			<span>Отдых:</span>
+			<span id="beachResult"></span>
+			<span>Деньги:</span>
 			<span id="moneyResul"></span>
 			<span id="totalCount" style="float: right;"></span>
-			<span style="float: right;">Count: </span>
+			<span style="float: right;">Осталось:</span>
 		</div>
 		<div id="hbwrap" class="hbwrap">
 			<div class="giftbox">
@@ -51,11 +50,14 @@
 					<span class="letter">a</span>
 					<span class="letter">y</span>
 				</div>
-				<a id='repeat' class='btn' href='#' style="display: none;">I want another gift</a>
+				<div class="buttons" style="display: none;">
+					<a id='repeat' class='btn' href='#'>Хочу другой подарок</a>
+					<a id="skip" class='btn-skip' href='#'><img src="https://png.icons8.com/wired/50/ffffff/fast-forward.png"></a>
+				</div>
 			</div>
 			<div class="background">
-				<img id="tesla" src="img/tesla.png" style="display: none;">
-				<img id="sexy-girl" src="img/sexy-girl.png" style="display: none;">
+				<img id="house" src="img/house.png" style="display: none;">
+				<img id="beach" src="img/beach.jpg" style="display: none; transform: rotate(20deg);">
 				<img id="money" src="img/money.png" style="display: none;">
 			</div>
 		</div>

@@ -1,25 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700|Peralta);
-@font-face {
-    font-weight: normal;
-    font-style: normal;
-    font-family: 'codropsicons';
-    src: url('../fonts/codropsicons/codropsicons.eot');
-    src: url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'), url('../fonts/codropsicons/codropsicons.woff') format('woff'), url('../fonts/codropsicons/codropsicons.ttf') format('truetype'), url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
-}
-
 *,
 *:after,
 *:before {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
-
-body {
-    /* background: #e74c3c; */
-    color: #fff;
-    font-weight: 400;
-    font-family: 'Lato', Calibri, Arial, sans-serif;
 }
 
 /* To Navigation Style */

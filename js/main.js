@@ -1,9 +1,9 @@
-var sexyGirlCount = 0;
-var teslaCount = 0;
+var beachCount = 0;
+var houseCount = 0;
 var moneyCount = 0;
-var totalCount = 33;
+var totalCount = 47;
 
-(function() {
+(function () {
 
     'use strict';
 
@@ -14,45 +14,58 @@ var totalCount = 33;
     function init() {
         box.addEventListener('click', runAnimation);
         box.addEventListener('mouseup', updateResult);
-        setTimeout(function() {
+        setTimeout(function () {
             randomGift();
         }, 1000);
     }
 
     function updateResult() {
         $('#result').show();
-        document.getElementById('carResult').innerHTML = teslaCount;
-        document.getElementById('girlResult').innerHTML = sexyGirlCount;
+        document.getElementById('houseResult').innerHTML = houseCount;
+        document.getElementById('beachResult').innerHTML = beachCount;
         document.getElementById('moneyResul').innerHTML = moneyCount;
         document.getElementById('totalCount').innerHTML = totalCount;
     }
 
     function checkWinner() {
+        updateResult();
         if (totalCount == 0) {
-            if (teslaCount > sexyGirlCount && teslaCount > moneyCount) {
-                setWinner('car');
-            } else if (sexyGirlCount > teslaCount && sexyGirlCount > moneyCount) {
-                setWinner('girl');
-            } else if (moneyCount > sexyGirlCount && moneyCount > teslaCount) {
-                setWinner('money');
-            } else {
-				++totalCount;
-			}
-            return true;
+            var winner = '';
+            if (houseCount > beachCount && houseCount > moneyCount)
+                winner = 'house';
+            if (beachCount > houseCount && beachCount > moneyCount)
+                winner = 'beach';
+            if (moneyCount > beachCount && moneyCount > houseCount)
+                winner = 'money';
+            switch (winner) {
+                case 'beach':
+                    setWinner(winner);
+                    return true;
+                case 'house':
+                    setWinner(winner);
+                    return true;
+                case 'money':
+                    setWinner(winner);
+                    return true;
+                default:
+                    ++totalCount;
+                    skip();
+                    return false;
+            }
         } else {
             return false;
         }
     }
 
     function setWinner(winner) {
-        $('#repeat').hide();
+        $('.buttons').hide();
         $('.background').find('img').addClass('pulse');
         switch (winner) {
-            case 'girl':
-                showGirlImg();
+            case 'beach':
+                showBeachImg();
                 break;
-            case 'car':
-                showCarImg();
+            case 'house':
+                showHouseImg();
                 break;
             case 'money':
                 showMoneyImg();
@@ -67,12 +80,12 @@ var totalCount = 33;
         var numberImg = Math.floor(Math.random() * 3) + 1;
         switch (numberImg) {
             case 1:
-                showCarImg();
-                teslaCount++;
+                showHouseImg();
+                houseCount++;
                 break;
             case 2:
-                showGirlImg();
-                sexyGirlCount++;
+                showBeachImg();
+                beachCount++;
                 break;
             case 3:
                 showMoneyImg();
@@ -81,21 +94,21 @@ var totalCount = 33;
         }
     }
 
-    function showCarImg() {
-        $("#sexy-girl").hide();
+    function showHouseImg() {
+        $("#beach").hide();
         $("#money").hide();
-        $("#tesla").show();
+        $("#house").show();
     }
 
-    function showGirlImg() {
+    function showBeachImg() {
         $("#money").hide();
-        $("#tesla").hide();
-        $("#sexy-girl").show();
+        $("#house").hide();
+        $("#beach").show();
     }
 
     function showMoneyImg() {
-        $("#tesla").hide();
-        $("#sexy-girl").hide();
+        $("#house").hide();
+        $("#beach").hide();
         $("#money").show();
     }
 
@@ -103,32 +116,61 @@ var totalCount = 33;
         if (step === 1) {
             box.removeEventListener('click', runAnimation);
             document.getElementById('repeat').removeEventListener('click', repeat);
+            document.getElementById('skip').removeEventListener('click', skip);
         }
         incStep(step);
         if (step === 4) {
             document.getElementById('repeat').addEventListener('click', repeat);
-            if(checkWinner() == false) {
-            	$("#repeat").show();
-            	totalCount--;
-            	updateResult();
-            	checkWinner();
+            document.getElementById('skip').addEventListener('click', skip);
+            if (checkWinner() == false) {
+                $(".buttons").show();
+                totalCount--;
+                updateResult();
+                checkWinner();
             }
             return;
         }
-        setTimeout(function() { runAnimation(); }, stepTimes[step - 1]);
+        setTimeout(function () { runAnimation(); }, stepTimes[step - 1]);
         ++step;
     }
 
     function repeat() {
         step = 1;
-        $("#tesla").hide();
-        $("#sexy-girl").hide();
+        $("#house").hide();
+        $("#beach").hide();
         $("#money").hide();
-        $('#repeat').hide();
+        $('.buttons').hide();
         classie.remove(hbwrap, 'step-' + 4);
         classie.remove(hbwrap, 'step-' + 3);
         classie.remove(hbwrap, 'step-' + 2);
         init();
+    }
+
+    function skip() {
+        $("#house").hide();
+        $("#beach").hide();
+        $("#money").hide();
+        $('.buttons').hide();
+        t:for (var i = totalCount; i > 0; i--) {
+            setTimeout(function (n) {
+                if (checkWinner() == false) {
+                    switch (Math.floor(Math.random() * 3) + 1) {
+                        case 1:
+                            houseCount++;
+                            break;
+                        case 2:
+                            beachCount++;
+                            break;
+                        case 3:
+                            moneyCount++;
+                            break;
+                    }
+                    --totalCount;
+                    updateResult();
+                    checkWinner();
+                }
+            }, i * 50, totalCount);
+        }
     }
 
     function incStep(step) {
@@ -175,7 +217,7 @@ var totalCount = 33;
             this.tiltAngleIncremental = Math.random() * 0.07 + 0.05;
             this.tiltAngle = 0;
 
-            this.draw = function() {
+            this.draw = function () {
                 context.beginPath();
                 context.lineWidth = this.r / 2;
                 context.strokeStyle = this.color;
@@ -222,7 +264,7 @@ var totalCount = 33;
 
         window.addEventListener(
             "resize",
-            function() {
+            function () {
                 W = window.innerWidth;
                 H = window.innerHeight;
                 canvas.width = window.innerWidth;

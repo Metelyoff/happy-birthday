@@ -1,13 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:700&subset=cyrillic&effect=shadow-multiple');
+
 html, body, .container {
 	height: 100%;
 	width: 100%;
 }
 
 body {
-	background: repeating-conic-gradient(hsla(0,0%,100%,.2) 0 15deg, hsla(0,0%,100%,0) 0 30deg), #0ac;
+	background: repeating-conic-gradient(hsla(0,0%,100%,.2) 0 15deg, hsla(0,0%,100%,0) 0 30deg), #FF1BB0;
 	background-repeat: no-repeat;
 	background-size: cover;
 	overflow: hidden;
+	color: #fff;
+    font-weight: 400;
+    font-family: 'Montserrat Alternates', sans-serif;
 }
 
 h1 {
@@ -15,7 +20,7 @@ h1 {
 	bottom: 10px;
 	right: 15px;
 	color: #fff;
-	font-family: 'Peralta', serif;
+	font-family: 'Montserrat Alternates', sans-serif;
 	text-transform: uppercase;
 	font-size: 20px;
 	margin: 0;
@@ -56,10 +61,10 @@ h1 span {
 }
 
 .giftbox::after {
-	content: 'Click me';
+	content: 'Нажми на меня :)';
 	position: absolute;
 	color: #fff;
-	font-family: 'Peralta', serif;
+	font-family: 'Montserrat Alternates', sans-serif;
 	bottom: 0;
 	left: 0;
 	width: 100%;
@@ -155,25 +160,53 @@ h1 span {
     -webkit-box-shadow: 0px 0px 6px #666666;
     -moz-box-shadow: 0px 0px 6px #666666;
     box-shadow: 0px 0px 6px #666666;
-    color: #fdc56d;
+    color: #ffffff;
     font-size: 3rem;
-    background: #0ac;
+    background: #FF1BB0;
     padding: 10px 20px 10px 20px;
-    font-family: 'Peralta', serif;
+	font-family: 'Montserrat Alternates', sans-serif;
     text-transform: uppercase;
     z-index: 1000000;
     position: absolute;
     left: 0;
-    right: 0;
+    /* right: 0; */
     margin: auto;
     bottom: 1em;
     text-align: center;
-    width: 17em;
+    width: 15em;
     cursor: pointer;
   }
   
   .btn:hover {
-	background: #00ABCC;
+	background: #FF1BB0;
+  }
+
+  .btn-skip {
+	-webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 0px 6px #666666;
+    -moz-box-shadow: 0px 0px 6px #666666;
+    box-shadow: 0px 0px 6px #666666;
+    color: #ffffff;
+    font-size: 3rem;
+    background: #FF1BB0;
+	font-family: 'Montserrat Alternates', sans-serif;
+    text-transform: uppercase;
+	z-index: 1000000;
+	height: 5rem;
+    width: 5rem;
+    position: absolute;
+    right: 0;
+    margin: auto;
+    bottom: 1em;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .btn-skip img {
+	height: 4rem;
+    margin: 0.5rem 0.8rem;
   }
 
 /* Grid */
@@ -195,7 +228,7 @@ h1 span {
 	display: inline-block;
 	width: calc((100% / 11) - 1px);
 	height: 100%;
-	font-family: 'Peralta';
+	font-family: 'Montserrat Alternates', sans-serif;
 	font-size: 74px;
 	text-transform: uppercase;
 	text-align: center;
