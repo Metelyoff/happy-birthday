@@ -61,10 +61,10 @@ var totalCount = 27;
         $('.buttons').hide();
         $('.background').find('img').addClass('pulse');
         switch (winner) {
-            case 'beach':
+            case 'girl':
                 showGirlImg();
                 break;
-            case 'house':
+            case 'car':
                 showCarImg();
                 break;
             case 'money':
@@ -157,10 +157,10 @@ var totalCount = 27;
                 if (checkWinner() == false) {
                     switch (Math.floor(Math.random() * 3) + 1) {
                         case 1:
-                            houseCount++;
+                            carCount++;
                             break;
                         case 2:
-                            beachCount++;
+                            girlCount++;
                             break;
                         case 3:
                             moneyCount++;
