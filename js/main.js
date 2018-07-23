@@ -1,7 +1,7 @@
-var beachCount = 0;
-var houseCount = 0;
+var carCount = 0;
+var girlCount = 0;
 var moneyCount = 0;
-var totalCount = 47;
+var totalCount = 27;
 
 (function () {
 
@@ -21,8 +21,8 @@ var totalCount = 47;
 
     function updateResult() {
         $('#result').show();
-        document.getElementById('houseResult').innerHTML = houseCount;
-        document.getElementById('beachResult').innerHTML = beachCount;
+        document.getElementById('carResult').innerHTML = carCount;
+        document.getElementById('girlResult').innerHTML = girlCount;
         document.getElementById('moneyResul').innerHTML = moneyCount;
         document.getElementById('totalCount').innerHTML = totalCount;
     }
@@ -31,17 +31,17 @@ var totalCount = 47;
         updateResult();
         if (totalCount == 0) {
             var winner = '';
-            if (houseCount > beachCount && houseCount > moneyCount)
-                winner = 'house';
-            if (beachCount > houseCount && beachCount > moneyCount)
-                winner = 'beach';
-            if (moneyCount > beachCount && moneyCount > houseCount)
+            if (carCount > beachCount && carCount > moneyCount)
+                winner = 'car';
+            if (girlCount > carCount && girlCount > moneyCount)
+                winner = 'girl';
+            if (moneyCount > girlCount && moneyCount > carCount)
                 winner = 'money';
             switch (winner) {
-                case 'beach':
+                case 'car':
                     setWinner(winner);
                     return true;
-                case 'house':
+                case 'girl':
                     setWinner(winner);
                     return true;
                 case 'money':
@@ -62,10 +62,10 @@ var totalCount = 47;
         $('.background').find('img').addClass('pulse');
         switch (winner) {
             case 'beach':
-                showBeachImg();
+                showGirlImg();
                 break;
             case 'house':
-                showHouseImg();
+                showCarImg();
                 break;
             case 'money':
                 showMoneyImg();
@@ -81,11 +81,11 @@ var totalCount = 47;
         var numberImg = Math.floor(Math.random() * 3) + 1;
         switch (numberImg) {
             case 1:
-                showHouseImg();
+                showCarImg();
                 houseCount++;
                 break;
             case 2:
-                showBeachImg();
+                showGirlImg();
                 beachCount++;
                 break;
             case 3:
@@ -95,21 +95,21 @@ var totalCount = 47;
         }
     }
 
-    function showHouseImg() {
-        $("#beach").hide();
+    function showCarImg() {
+        $("#girl").hide();
         $("#money").hide();
-        $("#house").show();
+        $("#car").show();
     }
 
-    function showBeachImg() {
+    function showGirlImg() {
         $("#money").hide();
-        $("#house").hide();
-        $("#beach").show();
+        $("#car").hide();
+        $("#girl").show();
     }
 
     function showMoneyImg() {
-        $("#house").hide();
-        $("#beach").hide();
+        $("#car").hide();
+        $("#girl").hide();
         $("#money").show();
     }
 
@@ -137,8 +137,8 @@ var totalCount = 47;
 
     function repeat() {
         step = 1;
-        $("#house").hide();
-        $("#beach").hide();
+        $("#car").hide();
+        $("#girl").hide();
         $("#money").hide();
         $('.buttons').hide();
         classie.remove(hbwrap, 'step-' + 4);
@@ -148,8 +148,8 @@ var totalCount = 47;
     }
 
     function skip() {
-        $("#house").hide();
-        $("#beach").hide();
+        $("#car").hide();
+        $("#girl").hide();
         $("#money").hide();
         $('.buttons').hide();
         t:for (var i = totalCount; i > 0; i--) {

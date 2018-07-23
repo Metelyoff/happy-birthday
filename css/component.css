@@ -6,7 +6,7 @@ html, body, .container {
 }
 
 body {
-	background: repeating-conic-gradient(hsla(0,0%,100%,.2) 0 15deg, hsla(0,0%,100%,0) 0 30deg), #FF1BB0;
+	background: repeating-conic-gradient(hsla(0,0%,100%,.2) 0 15deg, hsla(0,0%,100%,0) 0 30deg), #0ac;
 	background-repeat: no-repeat;
 	background-size: cover;
 	overflow: hidden;
