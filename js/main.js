@@ -23,7 +23,7 @@ var totalCount = 27;
         $('#result').show();
         document.getElementById('carResult').innerHTML = carCount;
         document.getElementById('girlResult').innerHTML = girlCount;
-        document.getElementById('moneyResul').innerHTML = moneyCount;
+        document.getElementById('moneyResult').innerHTML = moneyCount;
         document.getElementById('totalCount').innerHTML = totalCount;
     }
 
