@@ -82,11 +82,11 @@ var totalCount = 27;
         switch (numberImg) {
             case 1:
                 showCarImg();
-                houseCount++;
+                carCount++;
                 break;
             case 2:
                 showGirlImg();
-                beachCount++;
+                girlCount++;
                 break;
             case 3:
                 showMoneyImg();
