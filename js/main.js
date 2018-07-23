@@ -31,7 +31,7 @@ var totalCount = 27;
         updateResult();
         if (totalCount == 0) {
             var winner = '';
-            if (carCount > beachCount && carCount > moneyCount)
+            if (carCount > girlCount && carCount > moneyCount)
                 winner = 'car';
             if (girlCount > carCount && girlCount > moneyCount)
                 winner = 'girl';
