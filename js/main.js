@@ -117,12 +117,12 @@ var totalCount = 5;
         if (step === 1) {
             box.removeEventListener('click', runAnimation);
             document.getElementById('repeat').removeEventListener('click', repeat);
-            document.getElementById('skip').removeEventListener('click', skip);
+            // document.getElementById('skip').removeEventListener('click', skip);
         }
         incStep(step);
         if (step === 4) {
             document.getElementById('repeat').addEventListener('click', repeat);
-            document.getElementById('skip').addEventListener('click', skip);
+            // document.getElementById('skip').addEventListener('click', skip);
             if (checkWinner() == false) {
                 $(".buttons").show();
                 totalCount--;
