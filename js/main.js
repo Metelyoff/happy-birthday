@@ -1,7 +1,7 @@
-var carCount = 0;
-var girlCount = 0;
-var moneyCount = 0;
-var totalCount = 27;
+var catCount = 0;
+var ladyCount = 0;
+var lolCount = 0;
+var totalCount = 5;
 
 (function () {
 
@@ -21,9 +21,9 @@ var totalCount = 27;
 
     function updateResult() {
         $('#result').show();
-        document.getElementById('carResult').innerHTML = carCount;
-        document.getElementById('girlResult').innerHTML = girlCount;
-        document.getElementById('moneyResult').innerHTML = moneyCount;
+        document.getElementById('catResult').innerHTML = catCount;
+        document.getElementById('ladyResult').innerHTML = ladyCount;
+        document.getElementById('lolResult').innerHTML = lolCount;
         document.getElementById('totalCount').innerHTML = totalCount;
     }
 
@@ -31,20 +31,20 @@ var totalCount = 27;
         updateResult();
         if (totalCount == 0) {
             var winner = '';
-            if (carCount > girlCount && carCount > moneyCount)
-                winner = 'car';
-            if (girlCount > carCount && girlCount > moneyCount)
-                winner = 'girl';
-            if (moneyCount > girlCount && moneyCount > carCount)
-                winner = 'money';
+            if (catCount > ladyCount && catCount > lolCount)
+                winner = 'cat';
+            if (ladyCount > catCount && ladyCount > lolCount)
+                winner = 'lady';
+            if (lolCount > ladyCount && lolCount > catCount)
+                winner = 'lol';
             switch (winner) {
-                case 'car':
+                case 'cat':
                     setWinner(winner);
                     return true;
-                case 'girl':
+                case 'lady':
                     setWinner(winner);
                     return true;
-                case 'money':
+                case 'lol':
                     setWinner(winner);
                     return true;
                 default:
@@ -61,14 +61,14 @@ var totalCount = 27;
         $('.buttons').hide();
         $('.background').find('img').addClass('pulse');
         switch (winner) {
-            case 'girl':
-                showGirlImg();
+            case 'lady':
+                showLadyImg();
                 break;
-            case 'car':
-                showCarImg();
+            case 'cat':
+                showCatImg();
                 break;
-            case 'money':
-                showMoneyImg();
+            case 'lol':
+                showLolImg();
                 break;
         }
         $('#happy').show();
@@ -81,36 +81,36 @@ var totalCount = 27;
         var numberImg = Math.floor(Math.random() * 3) + 1;
         switch (numberImg) {
             case 1:
-                showCarImg();
-                carCount++;
+                showCatImg();
+                catCount++;
                 break;
             case 2:
-                showGirlImg();
-                girlCount++;
+                showLadyImg();
+                ladyCount++;
                 break;
             case 3:
-                showMoneyImg();
-                moneyCount++;
+                showLolImg();
+                lolCount++;
                 break;
         }
     }
 
-    function showCarImg() {
-        $("#girl").hide();
-        $("#money").hide();
-        $("#car").show();
+    function showCatImg() {
+        $("#lady").hide();
+        $("#lol").hide();
+        $("#cat").show();
     }
 
-    function showGirlImg() {
-        $("#money").hide();
-        $("#car").hide();
-        $("#girl").show();
+    function showLadyImg() {
+        $("#lol").hide();
+        $("#cat").hide();
+        $("#lady").show();
     }
 
-    function showMoneyImg() {
-        $("#car").hide();
-        $("#girl").hide();
-        $("#money").show();
+    function showLolImg() {
+        $("#cat").hide();
+        $("#lady").hide();
+        $("#lol").show();
     }
 
     function runAnimation() {
@@ -137,9 +137,9 @@ var totalCount = 27;
 
     function repeat() {
         step = 1;
-        $("#car").hide();
-        $("#girl").hide();
-        $("#money").hide();
+        $("#cat").hide();
+        $("#lady").hide();
+        $("#lol").hide();
         $('.buttons').hide();
         classie.remove(hbwrap, 'step-' + 4);
         classie.remove(hbwrap, 'step-' + 3);
@@ -148,22 +148,22 @@ var totalCount = 27;
     }
 
     function skip() {
-        $("#car").hide();
-        $("#girl").hide();
-        $("#money").hide();
+        $("#cat").hide();
+        $("#lady").hide();
+        $("#lol").hide();
         $('.buttons').hide();
         t:for (var i = totalCount; i > 0; i--) {
             setTimeout(function (n) {
                 if (checkWinner() == false) {
                     switch (Math.floor(Math.random() * 3) + 1) {
                         case 1:
-                            carCount++;
+                            catCount++;
                             break;
                         case 2:
-                            girlCount++;
+                            ladyCount++;
                             break;
                         case 3:
-                            moneyCount++;
+                            lolCount++;
                             break;
                     }
                     --totalCount;
