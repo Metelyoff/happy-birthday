@@ -61,7 +61,7 @@ h1 span {
 }
 
 .giftbox::after {
-	content: 'Нажми на меня :)';
+	content: 'Tap me :)';
 	position: absolute;
 	color: #fff;
 	font-family: 'Montserrat Alternates', sans-serif;
@@ -173,7 +173,7 @@ h1 span {
     margin: auto;
     bottom: 1em;
     text-align: center;
-    width: 15em;
+    width: 5em;
     cursor: pointer;
   }
   
