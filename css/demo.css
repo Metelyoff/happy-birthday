@@ -97,3 +97,204 @@ canvas {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
+
+
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 0vh;
+    background-color: transparent;
+    overflow: hidden;
+    transition: background-color 0.25s ease;
+    z-index: 9999;
+  }
+  .modal.open {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: background-color 0.25s;
+  }
+  .modal.open > .content-wrapper {
+    transform: scale(1);
+  }
+  .modal .content-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 2.5rem;
+    background-color: #0ac;
+    border-radius: 0.3125rem;
+    box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.5);
+    transform: scale(0);
+    transition: transform 0.25s;
+    transition-delay: 0.15s;
+  }
+  .modal .content-wrapper .close {
+    
+  }
+  .modal .content-wrapper .modal-header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .modal .content-wrapper .modal-header h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .modal .content-wrapper .content {
+    position: relative;
+    display: flex;
+  }
+  .modal .content-wrapper .content p {
+    font-size: 0.875rem;
+    line-height: 1.75;
+  }
+  .modal .content-wrapper .modal-footer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin: 0;
+    padding: 1.875rem 0 0;
+  }
+  .modal .content-wrapper .modal-footer .action {
+    position: relative;
+    margin-left: 0.625rem;
+    padding: 0.625rem 1.25rem;
+    border: none;
+    background-color: slategray;
+    border-radius: 0.25rem;
+    color: white;
+    font-size: 0.87rem;
+    font-weight: 300;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .modal .content-wrapper .modal-footer .action:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: width 0.25s;
+    z-index: 0;
+  }
+  .modal .content-wrapper .modal-footer .action:first-child {
+    background-color: #2ecc71;
+  }
+  .modal .content-wrapper .modal-footer .action:last-child {
+    background-color: #e74c3c;
+  }
+  .modal .content-wrapper .modal-footer .action:hover:before {
+    width: 100%;
+  }
+
+
+
+
+  .quantity {
+    position: relative;
+    border: 3px solid #0ac;
+  }
+  
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button
+  {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  input[type=number]
+  {
+    -moz-appearance: textfield;
+  }
+  
+  .quantity input {
+    width: 90px;
+    height: 90px;
+    line-height: 1.65;
+    float: left;
+    display: block;
+    padding: 0;
+    margin: 0;
+    padding-left: 20px;
+    border: 1px solid #eee;
+  }
+  
+  .quantity input:focus {
+    outline: 0;
+  }
+  
+  .quantity-nav {
+    float: left;
+    position: relative;
+    height: 90px;
+  }
+  
+  .quantity-button {
+    position: relative;
+    cursor: pointer;
+    border-left: 1px solid #eee;
+    width: 20px;
+    text-align: center;
+    color: #333;
+    font-size: 26px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+    line-height: 1.7;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+  
+  .quantity-button.quantity-up {
+    position: absolute;
+    height: 50%;
+    top: 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .quantity-button.quantity-down {
+    position: absolute;
+    bottom: -1px;
+    height: 50%;
+  }
+
+
+  .example_d {
+    margin-left: 50px;
+    color: #0ac !important;
+    text-transform: uppercase;
+    background: #ffffff;
+    padding: 20px;
+    border: 4px solid #0ac !important;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+}
+
+.example_d:hover {
+    color: #0ac !important;
+    text-transform: uppercase;
+    background: #ffffff;
+    border-radius: 50px;
+    border-color: #0ac !important;
+    transition: all 0.3s ease 0s;
+}

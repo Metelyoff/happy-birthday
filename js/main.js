@@ -1,7 +1,7 @@
-var catCount = 0;
-var ladyCount = 0;
-var lolCount = 0;
-var totalCount = 5;
+var drummerCount = 0;
+var chefCount = 0;
+var developerCount = 0;
+var totalCount = 30;
 
 (function () {
 
@@ -21,9 +21,9 @@ var totalCount = 5;
 
     function updateResult() {
         $('#result').show();
-        document.getElementById('catResult').innerHTML = catCount;
-        document.getElementById('ladyResult').innerHTML = ladyCount;
-        document.getElementById('lolResult').innerHTML = lolCount;
+        document.getElementById('drummerResult').innerHTML = drummerCount;
+        document.getElementById('chefResult').innerHTML = chefCount;
+        document.getElementById('developerResult').innerHTML = developerCount;
         document.getElementById('totalCount').innerHTML = totalCount;
     }
 
@@ -31,20 +31,20 @@ var totalCount = 5;
         updateResult();
         if (totalCount == 0) {
             var winner = '';
-            if (catCount > ladyCount && catCount > lolCount)
-                winner = 'cat';
-            if (ladyCount > catCount && ladyCount > lolCount)
-                winner = 'lady';
-            if (lolCount > ladyCount && lolCount > catCount)
-                winner = 'lol';
+            if (drummerCount > chefCount && drummerCount > developerCount)
+                winner = 'drummer';
+            if (chefCount > drummerCount && chefCount > developerCount)
+                winner = 'chef';
+            if (developerCount > chefCount && developerCount > drummerCount)
+                winner = 'developer';
             switch (winner) {
-                case 'cat':
+                case 'drummer':
                     setWinner(winner);
                     return true;
-                case 'lady':
+                case 'chef':
                     setWinner(winner);
                     return true;
-                case 'lol':
+                case 'developer':
                     setWinner(winner);
                     return true;
                 default:
@@ -61,14 +61,14 @@ var totalCount = 5;
         $('.buttons').hide();
         $('.background').find('img').addClass('pulse');
         switch (winner) {
-            case 'lady':
-                showLadyImg();
+            case 'chef':
+                showChefWinnerImg();
                 break;
-            case 'cat':
-                showCatImg();
+            case 'drummer':
+                showDrummerWinnerImg();
                 break;
-            case 'lol':
-                showLolImg();
+            case 'developer':
+                showDeveloperWinnerImg();
                 break;
         }
         $('#happy').show();
@@ -81,36 +81,60 @@ var totalCount = 5;
         var numberImg = Math.floor(Math.random() * 3) + 1;
         switch (numberImg) {
             case 1:
-                showCatImg();
-                catCount++;
+                showDrummerImg();
+                drummerCount++;
                 break;
             case 2:
-                showLadyImg();
-                ladyCount++;
+                showChefImg();
+                chefCount++;
                 break;
             case 3:
-                showLolImg();
-                lolCount++;
+                showDeveloperImg();
+                developerCount++;
                 break;
         }
     }
 
-    function showCatImg() {
-        $("#lady").hide();
-        $("#lol").hide();
-        $("#cat").show();
+    function showDrummerImg() {
+        $("#chef").hide();
+        $("#developer").hide();
+        $("#drummer").show();
     }
 
-    function showLadyImg() {
-        $("#lol").hide();
-        $("#cat").hide();
-        $("#lady").show();
+    function showChefImg() {
+        $("#developer").hide();
+        $("#drummer").hide();
+        $("#chef").show();
     }
 
-    function showLolImg() {
-        $("#cat").hide();
-        $("#lady").hide();
-        $("#lol").show();
+    function showDeveloperImg() {
+        $("#drummer").hide();
+        $("#chef").hide();
+        $("#developer").show();
+    }
+
+    function showDrummerWinnerImg() {
+        $("#chef").hide();
+        $("#chefWinner").hide();
+        $("#developer").hide();
+        $("#developerWinner").hide();
+        $("#drummerWinner").show();
+    }
+
+    function showChefWinnerImg() {
+        $("#chefWinner").show();
+        $("#developer").hide();
+        $("#developerWinner").hide();
+        $("#drummer").hide();
+        $("#drummerWinner").hide();
+    }
+
+    function showDeveloperWinnerImg() {
+        $("#drummerWinner").hide();
+        $("#drummer").hide();
+        $("#chefWinner").hide();
+        $("#chef").hide();
+        $("#developerWinner").show();
     }
 
     function runAnimation() {
@@ -137,9 +161,9 @@ var totalCount = 5;
 
     function repeat() {
         step = 1;
-        $("#cat").hide();
-        $("#lady").hide();
-        $("#lol").hide();
+        $("#drummer").hide();
+        $("#chef").hide();
+        $("#developer").hide();
         $('.buttons').hide();
         classie.remove(hbwrap, 'step-' + 4);
         classie.remove(hbwrap, 'step-' + 3);
@@ -148,22 +172,22 @@ var totalCount = 5;
     }
 
     function skip() {
-        $("#cat").hide();
-        $("#lady").hide();
-        $("#lol").hide();
+        $("#drummer").hide();
+        $("#chef").hide();
+        $("#developer").hide();
         $('.buttons').hide();
-        t:for (var i = totalCount; i > 0; i--) {
+        t: for (var i = totalCount; i > 0; i--) {
             setTimeout(function (n) {
                 if (checkWinner() == false) {
                     switch (Math.floor(Math.random() * 3) + 1) {
                         case 1:
-                            catCount++;
+                            drummerCount++;
                             break;
                         case 2:
-                            ladyCount++;
+                            chefCount++;
                             break;
                         case 3:
-                            lolCount++;
+                            developerCount++;
                             break;
                     }
                     --totalCount;
@@ -288,4 +312,48 @@ var totalCount = 5;
 
     init();
 
+    const modal = document.querySelector(`[data-modal=trigger-1]`);
+    const contentWrapper = modal.querySelector('.content-wrapper');
+    contentWrapper.addEventListener('click', (e) => e.stopPropagation());
+    modal.classList.toggle('open');
+    const close = modal.querySelector('.close');
+    close.addEventListener('click', () => {
+        totalCount = document.getElementById('age').value
+        modal.classList.remove('open');
+    });
+
 })();
+
+
+jQuery('<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>').insertAfter('.quantity input');
+jQuery('.quantity').each(function () {
+    var spinner = jQuery(this),
+        input = spinner.find('input[type="number"]'),
+        btnUp = spinner.find('.quantity-up'),
+        btnDown = spinner.find('.quantity-down'),
+        min = input.attr('min'),
+        max = input.attr('max');
+
+    btnUp.click(function () {
+        var oldValue = parseFloat(input.val());
+        if (oldValue >= max) {
+            var newVal = oldValue;
+        } else {
+            var newVal = oldValue + 1;
+        }
+        spinner.find("input").val(newVal);
+        spinner.find("input").trigger("change");
+    });
+
+    btnDown.click(function () {
+        var oldValue = parseFloat(input.val());
+        if (oldValue <= min) {
+            var newVal = oldValue;
+        } else {
+            var newVal = oldValue - 1;
+        }
+        spinner.find("input").val(newVal);
+        spinner.find("input").trigger("change");
+    });
+
+});

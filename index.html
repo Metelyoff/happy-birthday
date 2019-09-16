@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8" />
 	<title>Happy Birthday :)</title>
@@ -12,18 +13,32 @@
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 </head>
+
 <body>
+	<div data-modal="trigger-1" class="modal">
+		<article class="content-wrapper">
+			<header class="modal-header" style="text-align: center">
+				<h2>PLEASE ENTER YOUR AGE</h2>
+			</header>
+			<div class="content">
+				<div class="quantity">
+					<input id="age" type="number" min="10" max="50" step="1" value="10">
+				</div>
+				<p><a class="example_d close" href="#">OK</a></p>
+			</div>
+		</article>
+	</div>
 	<canvas id="canvas"></canvas>
 	<div class="container">
 		<div id="result" class="codrops-top clearfix" style="display: none;">
-			<span>Кукла LOL:</span>
-			<span id="lolResult"></span>
-			<span>Cat Noir:</span>
-			<span id="catResult"></span>
-			<span>Lady Bug:</span>
-			<span id="ladyResult"></span>
+			<span>Drummer:</span>
+			<span id="drummerResult"></span>
+			<span>Chef:</span>
+			<span id="chefResult"></span>
+			<span>Developer:</span>
+			<span id="developerResult"></span>
 			<span id="totalCount" style="float: right;"></span>
-			<span style="float: right;">Осталось:</span>
+			<span style="float: right;">Left:</span>
 		</div>
 		<div id="hbwrap" class="hbwrap">
 			<div class="giftbox pulse">
@@ -50,24 +65,26 @@
 					<span class="letter">a</span>
 					<span class="letter">y</span>
 				</div>
-				<div id="name" class="row" style="display: none; position: absolute; bottom: 0; padding-left: 0.5em; padding-right: 0.5em">
-					<span class="letter">С</span>
-					<span class="letter">О</span>
-					<span class="letter">Н</span>
-					<span class="letter">Е</span>
-					<span class="letter">Ч</span>
-					<span class="letter">К</span>
-					<span class="letter">А</span>
+				<div id="name" class="row"
+					style="display: none; position: absolute; bottom: 0; padding-left: 0.5em; padding-right: 0.5em">
+					<span class="letter">S</span>
+					<span class="letter">T</span>
+					<span class="letter">A</span>
+					<span class="letter">S</span>
 				</div>
 				<div class="buttons" style="display: none;">
-					<a id='repeat' class='btn' href='#'>Хочу другой подарок</a>
-					<a id="skip" class='btn-skip' href='#'><img src="https://png.icons8.com/wired/50/ffffff/fast-forward.png"></a>
+					<a id='repeat' class='btn' href='#'>Next</a>
+					<a id="skip" class='btn-skip' href='#'><img
+							src="https://png.icons8.com/wired/50/ffffff/fast-forward.png"></a>
 				</div>
 			</div>
 			<div class="background">
-				<img id="lol" src="img/lol.jpg" style="display: none;">
-				<img id="cat" src="img/cat.jpg" style="display: none;">
-				<img id="lady" src="img/lady.jpg" style="display: none;">
+				<img id="drummer" src="img/drummer.jpg" style="display: none;">
+				<img id="chef" src="img/chef.jpg" style="display: none;">
+				<img id="developer" src="img/developer.jpg" style="display: none;">
+				<img id="drummerWinner" src="img/drummerWinner.jpg" style="display: none;">
+				<img id="chefWinner" src="img/chefWinner.jpg" style="display: none;">
+				<img id="developerWinner" src="img/developerWinner.jpg" style="display: none;">
 			</div>
 		</div>
 	</div>
@@ -75,4 +92,5 @@
 	<script src="js/classie.js"></script>
 	<script src="js/main.js"></script>
 </body>
+
 </html>

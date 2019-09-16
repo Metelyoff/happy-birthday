@@ -6,7 +6,7 @@ html, body, .container {
 }
 
 body {
-	background: repeating-conic-gradient(hsla(0,0%,100%,.2) 0 15deg, hsla(0,0%,100%,0) 0 30deg), #FF1BB0;
+	background: repeating-conic-gradient(hsla(0,0%,100%,.2) 0 15deg, hsla(0,0%,100%,0) 0 30deg), #0ac;
 	background-repeat: no-repeat;
 	background-size: cover;
 	overflow: hidden;
@@ -162,7 +162,7 @@ h1 span {
     box-shadow: 0px 0px 6px #666666;
     color: #ffffff;
     font-size: 3rem;
-    background: #FF1BB0;
+    background: #0ac;
     padding: 10px 20px 10px 20px;
 	font-family: 'Montserrat Alternates', sans-serif;
     text-transform: uppercase;
@@ -178,7 +178,7 @@ h1 span {
   }
   
   .btn:hover {
-	background: #FF1BB0;
+	background: rgb(0, 191, 230);
   }
 
   .btn-skip {
@@ -190,7 +190,7 @@ h1 span {
     box-shadow: 0px 0px 6px #666666;
     color: #ffffff;
     font-size: 3rem;
-    background: #FF1BB0;
+    background: #0ac;
 	font-family: 'Montserrat Alternates', sans-serif;
     text-transform: uppercase;
 	z-index: 1000000;
